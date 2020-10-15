@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg" id="navigation">
-    <a class="navbar-brand" href="{% url 'home' %}">Simple IT Tools</a>
+    <a class="navbar-brand" href="{% url 'mainsite:home' %}">Simple IT Tools</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -25,17 +25,17 @@
 {#                </li>#}
 {#            {% endif %}#}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'home' %}#about">About</a>
+                <a class="nav-link" href="{% url 'mainsite:home' %}#about">About</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'home' %}#youtube">YouTube Channel</a>
+                <a class="nav-link" href="{% url 'mainsite:home' %}#youtube">YouTube Channel</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'home' %}#scripts">Scripts</a>
+                <a class="nav-link" href="{% url 'mainsite:home' %}#scripts">Scripts</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'home' %}#contact">Contact</a>
+                <a class="nav-link" href="{% url 'mainsite:home' %}#contact">Contact</a>
             </li>
         </ul>
 {#        {% if user.is_authenticated %}#}

@@ -5,12 +5,12 @@ from django.views.generic import TemplateView
 
 
 class IndexView(TemplateView):
-    template_name = 'home.html'
+    template_name = 'mainsite/home.html'
 
 
 class OriginScriptsView(TemplateView):
-    template_name = 'origin_scripts.html'
+    template_name = 'mainsite/origin_scripts.html'
 
 
 class UserEnvScriptsView(TemplateView):
-    template_name = 'user_env_script.html'
+    template_name = 'mainsite/user_env_script.html'
