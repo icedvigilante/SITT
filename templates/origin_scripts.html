@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{%  load static %}
+
+<link rel="stylesheet" href="{% static 'css/copyCodeBlock.css' %}">
+{% block title %} - Origin Scripts{% endblock title %}
+
+{% block content %}
+    <!-- nav template -->
+    {% include 'navbar/nav.html' %}
+    <!-- nav template -->
+
+    <div class="col-md-12 text-center">
+        <h2>Origin Scripts</h2>
+        <p>These scripts will help to resolve the issue where Origin takes focus while you are playing games.</p>
+    </div>
+    <div>
+		<div class="codeblockPrimary codeblock">
+			<a href="{% static 'files/launch_origin_cmd.zip' %}" class="codeBlockPrimaryLink">Batch Script</a>
+		<pre class="codeText">
+
+		<code>
+	:: finds the user profile and silently removing the offending files
+	del "%userprofile%\AppData\Local\Electronic Arts\EA Services\License\*.*" /f /q
+	:: goes into the programdata directory and removes the files that are causing issue
+	del "%programdata%\Electronic Arts\EA Services\License\*.*" /f /q
+	::Launch origin
+	REM You will need to set the path to your origin.exe file. Replace "origin" with the path such as "C:\Program Files (x86)\Origin\origin.exe"
+	origin
+		</code>
+
+		</pre>
+		</div>
+	</div>
+
+    <div>
+		<div class="codeblockSecondary codeblock">
+
+			<a href="{% static 'files/Start_Origin_powershell.zip' %}" class="codeBlockSecondaryLink">Powershell Script</a>
+
+		<pre class="codeText">
+
+
+		<code>
+	# finds the user profile and silently removes the offending files
+	Remove-Item "$env:USERPROFILE\AppData\Local\Electronic Arts\EA Services\License\*.*" -Recurse -Force -Confirm:$false
+
+	# goes into the program data directory and removes the files that are causing issue
+	Remove-Item "$env:PROGRAMDATA\Electronic Arts\EA Services\License\*.*" -Recurse -Force -Confirm:$false
+
+	#Launch origin
+	Write-Host 'You will need to set the path to your origin.exe file. Replace "origin" with the path such as "C:\Program Files (x86)\Origin\origin.exe", include the quotes'
+	Start-Process origin
+		</code>
+
+		</pre>
+		</div>
+	</div>
+
+    <script src="{% static '/js/copyCodeBlock.js' %}"></script>
+    <br>
+{% endblock content %}

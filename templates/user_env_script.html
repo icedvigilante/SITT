@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{%  load static %}
+
+<link rel="stylesheet" href="{% static 'css/copyCodeBlock.css' %}">
+{% block title %} - Origin Scripts{% endblock title %}
+
+{% block content %}
+    <!-- nav template -->
+    {% include 'navbar/nav.html' %}
+    <!-- nav template -->
+
+    <div class="col-md-12 text-center">
+        <h2>Set User Environment Variable</h2>
+		<p>This scripts will set the User Environment Path Variable so you have direct access to the EXE file for direct launching</p>
+	</div>
+	<div>
+		<div class="codeblockSecondary codeblock">
+
+			<a href="{% static 'files/addToUserEnvPath.zip' %}" class="codeBlockSecondaryLink">User Environment Script</a>
+
+		<pre class="codeText">
+
+
+		<code>
+	#Collect Current User Environment Path from the registry
+	$val = (Get-ItemProperty -path 'HKCU:\Environment\').Path
+	#Promt user for new path to add
+	Write-Host 'Please enter the path of the Program you wish to add (ex:"C:\Program Files(x86)\Steam")'
+	#take the user input and assign to a variable
+	$userValue = Read-Host "Enter Path"
+	#append a semi-colon to the user's input as needed by the registry
+	$addValue = $userValue +";"
+	#merge the current path value (As $val) with the additional value as provided by the user with the appended semi-colon
+	$newVal = $val + $addValue
+	#apply the full registry value to the User's environmental value in the registry
+	Set-ItemProperty -Path Registry::HKEY_CURRENT_USER\Environment -Name path -Value $newVal
+	#restart explorer to ensure everything is working as planned
+	Stop-Process -ProcessName explorer
+
+	#ask the user if they want to verify the program is running
+	$test = Read-Host "Do you want to test?(Y/N)"
+	If ($test -eq "y"){
+	    $program = Read-Host 'please type the name of the program (ex:"steam")'
+	    Start-Process $program
+	    }
+	else {
+	    Write-Host "Good Bye"
+	    Start-Sleep -Second 3
+	    Exit
+	    }
+		</code>
+
+		</pre>
+		</div>
+	</div>
+
+    <script src="{% static '/js/copyCodeBlock.js' %}"></script>
+    <br>
+{% endblock content %}

@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Image Carousel -->
+    {% include 'welcome/carousel.html' %}
+    <!-- End Image Carousel -->
+
+    <!-- nav template -->
+    {% include 'navbar/nav.html' %}
+    <!-- nav template -->
+
+	<!-- import about section -->
+    <div id="about" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h4>Welcome to Simple IT Tools</h4>
+                    <p>This is my personal site, and an extension of my YouTube Channel - <a href="https://www.youtube.com/channel/UCgrHE26dDBcG0xrE6Z6gCWA/" target="blank">Games Tech and Geekdom</a></p>
+                    <p>The Goal of this site, is to focus on simple solutions to technology.<br>
+					The goal of the YouTube Channel is to explore and share all the geeky things I enjoy.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<!-- import YouTube section -->
+	    <div id="youtube" class="youtubeComponent scrollMarker section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="embeddedVideo"><a href="https://www.youtube.com/channel/UCgrHE26dDBcG0xrE6Z6gCWA/" target="_blank">Games Tech and Geekdom - YouTube</a></h2>
+                </div>
+                <div class="col-md-12 text-center">
+                	<div class="iframeContainer">
+                		<iframe class="responsive-iframe" src="https://www.youtube.com/embed/6P9dRXzNB8k" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+	<!-- import Scripts Component -->
+	    <div id="scripts" class="scriptsComponent section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="squareItem">
+                        <div class="squareInnerContainer">
+                            <div class="squareIcon">
+                                <i><img src="{% static 'img/icons/origin_96px.png' %}" alt=""></i>
+                            </div>
+                            <div class="squareContent">
+                                <h2><a href="{% url 'origin_scripts' %}">Origin Scripts</a></h2>
+                                <p>There is an issue with EA's Origin, where Origin will steal focus from your game (which can cause all kinds of issues).<br>
+                                This is caused by an issue within specific files within Origin.<br>
+                                These scripts remove the files (so far, no negative effect) and launch Origin, thus preventing the issue.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="squareItem">
+                        <div class="squareInnerContainer">
+                            <div class="squareIcon">
+                                <i><img src="{% static 'img/icons/powershell_96px.png'%}" alt=""></i>
+                            </div>
+                            <div class="squareContent">
+                                <h2><a href="{% url 'user_env_script' %}">User Environment</a></h2>
+                                <p>To make launching programs more effective and easier (such as just typing the name of the exe), you can modify the
+user environmental variable. Though this can be done manually, this script should make the process just a bit easier.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+
+    <!-- import Contact Component -->
+    	<div id="contact" class=" contactSection section">
+        <div class="col-md-12 text-center">
+
+            <h2>I'd love to hear from you</h2>
+	    <p>For now, please leave comments on the YouTube Videos as I build out the rest of this page.</p>
+        </div>
+    </div>
+    <script>
+        console.log(navigator.userAgent)
+    </script>
+{% endblock %}
+

@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg" id="navigation">
+    <a class="navbar-brand" href="{% url 'home' %}">Simple IT Tools</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+{#            {% if user.is_authenticated %}#}
+{#                <li class="nav-item dropdown">#}
+{#                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown">Blog</a>#}
+{#                    <div class="dropdown-menu">#}
+{#                        <a href="{% url 'blog_home' %}" class="dropdown-item">Blog List</a>#}
+{#                        <a href="{% url 'add_post' %}" class="dropdown-item">Add Post</a>#}
+{#                        <div class="dropdown-divider"></div>#}
+{#                        <a href="{% url 'add_category' %}" class="dropdown-item">Add Category</a>#}
+{#                        <a href="{% url 'category_list' %}" class="dropdown-item">Categories</a>#}
+{##}
+{#                    </div>#}
+{#                </li>#}
+{#            {% else %}#}
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link" href="{% url 'blog_home' %}">Blog</a>#}
+{#                </li>#}
+{#            {% endif %}#}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}#about">About</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}#youtube">YouTube Channel</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}#scripts">Scripts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}#contact">Contact</a>
+            </li>
+        </ul>
+{#        {% if user.is_authenticated %}#}
+{#            <ul class="navbar-nav ml-auto">#}
+{#                <li class="nav-item dropdown">#}
+{#                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+{#                        {{ user.username }}#}
+{#                    </a>#}
+{#                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">#}
+{#                        {% if user.profile.id %}#}
+{#                            <a href="{% url 'profile' user.profile.id %}" class="dropdown-item">View Profile</a>#}
+{#                            <a href="{% url 'profile_edit' user.profile.id %}" class="dropdown-item">Edit Profile</a>#}
+{#                        {% else %}#}
+{#                            <a href="{% url 'create_profile' %}" class="dropdown-item">Create Profile</a>#}
+{#                        {% endif %}#}
+{##}
+{#                        <a href="{% url 'edit_settings' %}" class="dropdown-item">Edit Settings</a>#}
+{#                        <a href="{% url 'invite_user' %}" class="dropdown-item">Invite User</a>#}
+{#                        <a href="{% url 'logout' %}" class="dropdown-item">Log Out</a>#}
+{#                    </div>#}
+{#                </li>#}
+{#            </ul>#}
+{#        {% endif %}#}
+    </div>
+</nav>
