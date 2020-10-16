@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Add Category{% endblock %}
+{% block content %}
+    <h1>Add Category</h1>
+{#    {% if perms.blog.add_post%}#}
+        <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+                <button class="btn btn-ack">Post</button>
+            </div>
+        </form>
+{#    {% else %}#}
+{#        You don't have rights to add posts#}
+{#    {% endif %}#}
+{% endblock %}

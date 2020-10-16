@@ -141,6 +141,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-LOGIN_REDIRECT_URL = 'devarea:home'
+LOGIN_REDIRECT_URL = 'blog:home'
 LOGOUT_REDIRECT_URL = "mainsite:home"
 

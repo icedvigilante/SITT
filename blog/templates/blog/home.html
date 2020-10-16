@@ -5,7 +5,7 @@
         <p>There are no blog posts</p>
     {% else %}
         {% for post in object_list %}
-            <h5 class="blog_item"><a href="#" class="blog_item">{{ post.title }}</a></h5>
+            <h5 class="blog_item"><a href="{% url 'blog:blog_detail' post.pk %}" class="blog_item">{{ post.title }}</a></h5>
             <small><a href="">{{ post.category }}</a></small>
             <small>Published on: {{ post.post_date }}</small>
 {#            <small>#}
