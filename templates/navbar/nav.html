@@ -7,23 +7,23 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-{#            {% if user.is_authenticated %}#}
-{#                <li class="nav-item dropdown">#}
-{#                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown">Blog</a>#}
-{#                    <div class="dropdown-menu">#}
-{#                        <a href="{% url 'blog_home' %}" class="dropdown-item">Blog List</a>#}
-{#                        <a href="{% url 'add_post' %}" class="dropdown-item">Add Post</a>#}
+            {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown">Blog</a>
+                    <div class="dropdown-menu">
+                        <a href="{% url 'blog:home' %}" class="dropdown-item">Blog</a>
+                        <a href="{% url 'blog:add' %}" class="dropdown-item">Add Post</a>
 {#                        <div class="dropdown-divider"></div>#}
 {#                        <a href="{% url 'add_category' %}" class="dropdown-item">Add Category</a>#}
 {#                        <a href="{% url 'category_list' %}" class="dropdown-item">Categories</a>#}
-{##}
-{#                    </div>#}
-{#                </li>#}
-{#            {% else %}#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link" href="{% url 'blog_home' %}">Blog</a>#}
-{#                </li>#}
-{#            {% endif %}#}
+
+                    </div>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blog:home' %}">Blog</a>
+                </li>
+            {% endif %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'mainsite:home' %}#about">About</a>
             </li>

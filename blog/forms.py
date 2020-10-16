@@ -23,35 +23,12 @@ for choice in cat_choice:
 class PostForm(forms.ModelForm):
     class Meta:
         model = BlogPost
-        fields = ('title', 'header_image', 'snippet', 'category', 'body', 'author')
-
-        widgets ={
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'snippet': forms.TextInput(attrs={'class': 'form-control'}),
-            'category': forms.Select(choices=cat_choice_list, attrs={'class': 'form-control'}),
-            'author': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'author', 'type': 'hidden'}),
-            'body': forms.Textarea(attrs={'class': 'form-control'}),
-        }
-
-
-class EditPostForm(forms.ModelForm):
-    class Meta:
-        model = BlogPost
         fields = ('title', 'header_image', 'snippet', 'category', 'body')
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'snippet': forms.TextInput(attrs={'class': 'form-control'}),
             'category': forms.Select(choices=cat_choice_list, attrs={'class': 'form-control'}),
+            # 'author': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'author', 'type': 'hidden'}),
             'body': forms.Textarea(attrs={'class': 'form-control'}),
-        }
-
-
-class EditCategoryForm(forms.ModelForm):
-    class Meta:
-        model = Category
-        fields = ('name',)
-
-        widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
         }

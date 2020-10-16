@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.db import models
 from accounts.models import CustomUser
 from django.contrib.auth.models import Group
@@ -20,7 +22,7 @@ class Category(models.Model):
 class BlogPost(models.Model):
     title = models.CharField(max_length=150)
     header_image = models.ImageField(null=True, blank=True, upload_to='images/')
-    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     snippet = models.CharField(max_length=100, null=True, blank=True)
     category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
     body = models.TextField(blank=True, null=True)
