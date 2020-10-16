@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'mainsite',
     'devarea',
     'accounts',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -136,6 +137,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATIC_ROOT = os.path.join(BASE_DIR.joinpath('staticfiles'))
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = 'devarea:home'
 LOGOUT_REDIRECT_URL = "mainsite:home"
