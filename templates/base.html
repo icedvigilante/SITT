@@ -19,9 +19,14 @@
 <body>
     <div class="wrapper">
         <div class="content-wrap">
-            {% block content %}
+            {% include 'navbar/nav.html' %}
+            <div class="blog">
+                <div class="container view">
+                    {% block content %}
 
-            {% endblock content %}
+                    {% endblock content %}
+                </div>
+            </div>
         </div>
         <footer id="footer">
             <div class="copyrightSection">

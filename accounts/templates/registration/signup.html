@@ -3,9 +3,13 @@
 {% block title %}Sign Up{% endblock title %}
 
 {% block content %}
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-ack">Sign Up</button>
-    </form>
+    {% if user.is_authenticated %}
+            <meta http-equiv="REFRESH" content="0;url={% url 'mainsite:home' %}">
+    {% else %}
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-ack">Sign Up</button>
+        </form>
+    {% endif %}
 {% endblock content %}
