@@ -43,7 +43,12 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 
-    'mainsite'
+    # 'crispy_forms'
+    
+    
+    'mainsite',
+    'devarea',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +63,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'sitt.urls'
+
+# CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
@@ -86,6 +93,8 @@ DATABASES = {
     'default': env.dj_db_url("DATABASE_URL")
 }
 
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -127,3 +136,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATIC_ROOT = os.path.join(BASE_DIR.joinpath('staticfiles'))
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+LOGIN_REDIRECT_URL = 'devarea:home'
+LOGOUT_REDIRECT_URL = "mainsite:home"
+
