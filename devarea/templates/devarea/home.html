@@ -1,10 +1,27 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %} - Dev Area{% endblock title %}
 
 {% block content %}
-    <div class="col-md-12 text-center">
-        <h2>Dev Area</h2>
-        <p>Below is various applications and scripts I have made. Everything I have is open source, and links to the code are available.</p>
-    </div>
+    <h2>Dev Area</h2>
+    <p>Below is various applications and scripts I have made. Everything I have is open source, and links to the code are available.</p>
+    {% if not object_list.all %}
+        <p>There are is no software to show.</p>
+    {% else %}
+        {% for app in object_list %}
+            <h5 class="blog_item"><a href="" class="blog_item">{{ app.app_name }}</a></h5>
+            <small><a href="#">{{ app.app_type }}</a></small>
+            <small>Published on: {{ app.post_date }}</small>
+            <small>
+                {% if user.id == app.author_id %}
+                    <a href="#"><img src="{% static 'img/icons/edit_80px.png' %}" alt="" class="user_widget"></a>
+                    <a href="#"><img src="{% static 'img/icons/delete_bin_80px.png' %}" alt="" class="user_widget"></a>
+                {% endif %}
+
+                </small>
+                <div>{{ app.snippet | safe }}...<a href="">Read More</a></div>
+                <small>Written by: <a href=#>{{ app.author }}</a></small>
+        {% endfor %}
+    {% endif %}
 {% endblock content %}
