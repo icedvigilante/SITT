@@ -2,7 +2,8 @@ from django import forms
 from django_summernote.widgets import SummernoteInplaceWidget
 from .models import BlogPost, Category
 
-class AddCategoryForm(forms.ModelForm):
+
+class CategoryAddForm(forms.ModelForm):
     class Meta:
         model = Category
         fields = ('name',)
@@ -35,7 +36,7 @@ class PostForm(forms.ModelForm):
         }
 
 
-class EditPostForm(forms.ModelForm):
+class PostEditForm(forms.ModelForm):
     class Meta:
         model = BlogPost
         fields = ('title', 'header_image', 'snippet', 'category', 'body')
@@ -47,3 +48,12 @@ class EditPostForm(forms.ModelForm):
             'body': SummernoteInplaceWidget(),
         }
 
+
+class CategoryEditForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ('name',)
+
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+        }

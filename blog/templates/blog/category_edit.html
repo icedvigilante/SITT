@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} - Edit Category{% endblock title %}
+
+{% block content %}
+    <h1>Edit category</h1>
+        <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+                <button class="btn btn-ack">Edit Category</button>
+            </div>
+        </form>
+{% endblock content %}
