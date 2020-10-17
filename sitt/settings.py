@@ -155,7 +155,7 @@ SUMMERNOTE_THEME = 'bs4'
 SUMMERNOTE_CONFIG = {
     'summernote': {
         'width': '100%',
-        'disable_attachment': True,
+
     }
 }
 
