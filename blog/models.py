@@ -24,7 +24,7 @@ class BlogPost(models.Model):
     header_image = models.ImageField(null=True, blank=True, upload_to='images/')
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     snippet = models.CharField(max_length=100, null=True, blank=True)
-    # category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
     body = models.TextField(blank=True, null=True)
     post_date = models.DateField(auto_now_add=True)
 
