@@ -9,7 +9,7 @@ from .forms import PostForm, EditPostForm
 class BlogView(ListView):
     model = BlogPost
     template_name = 'blog/home.html'
-    ordering = ['-post_date']
+    ordering = ['-pk']
 
     def form_valid(self, form):
         form.instance.author = self.request.user.id
