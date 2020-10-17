@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}{{ blogpost.title }}{% endblock %}
 {% block content %}
     <main>
         <h4>{{ blogpost.title }}</h4>
         <small>
-{#            {% if user.id == post.author_id %}#}
-{#                <a href="{% url 'blog_edit' post.pk %}"><img src="{% static 'img/icons/edit_80px.png' %}" alt="" class="user_widget"></a>#}
-{#                <a href="{% url 'blog_delete' post.pk %}"><img src="{% static 'img/icons/delete_bin_80px.png' %}" alt="" class="user_widget"></a>#}
-{#            {% endif %}#}
+            {% if user.id == blogpost.author_id %}
+                <a href="{% url 'blog:blog_edit' blogpost.pk %}"><img src="{% static 'img/icons/edit_80px.png' %}" alt="" class="user_widget"></a>
+                <a href="{% url 'blog:blog_delete' blogpost.pk %}"><img src="{% static 'img/icons/delete_bin_80px.png' %}" alt="" class="user_widget"></a>
+            {% endif %}
         </small>
-{#        <small>By: <a href="{% url 'profile' post.author.profile.id %}">{{ post.author }}</a></small>#}
-{#        <small>Published on: {{ post.post_date }}</small>#}
+        <small>By: <a href="#">{{ blogpost.author }}</a></small>
+        <small>Published on: {{ blogpost.post_date }}</small>
         <br>
         {% if blogpost.header_image %}<img src="{{ blogpost.header_image.url }}" alt="" class="blog-image">{% endif %}
         <article>
-            {{ blogpost.body }}
+            {{ blogpost.body|safe }}
         </article>
     </main>
     {% endblock %}

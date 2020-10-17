@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %} - Blog {% endblock title %}
 {% block content %}
     {% if not object_list.all %}
@@ -8,14 +9,14 @@
             <h5 class="blog_item"><a href="{% url 'blog:blog_detail' post.pk %}" class="blog_item">{{ post.title }}</a></h5>
             <small><a href="">{{ post.category }}</a></small>
             <small>Published on: {{ post.post_date }}</small>
-{#            <small>#}
-{#                {% if user.id == post.author_id %}#}
-{#                    <a href="{% url 'blog_edit' post.pk %}"><img src="{% static 'img/icons/edit_80px.png' %}" alt="" class="user_widget"></a>#}
-{#                    <a href="{% url 'blog_delete' post.pk %}"><img src="{% static 'img/icons/delete_bin_80px.png' %}" alt="" class="user_widget"></a>#}
-{#                {% endif %}#}
-{##}
-{#            </small>#}
-            <div>{{ post.snippet | safe }}...<a href="#">Read More</a></div>
+            <small>
+                {% if user.id == post.author_id %}
+                    <a href="{% url 'blog:blog_edit' post.pk %}"><img src="{% static 'img/icons/edit_80px.png' %}" alt="" class="user_widget"></a>
+                    <a href="{% url 'blog:blog_delete' post.pk %}"><img src="{% static 'img/icons/delete_bin_80px.png' %}" alt="" class="user_widget"></a>
+                {% endif %}
+
+            </small>
+            <div>{{ post.snippet | safe }}...<a href="{% url 'blog:blog_detail' post.pk %}">Read More</a></div>
             <small>Written by: <a href=#>{{ post.author }}</a></small>
         {% endfor %}
     {% endif %}

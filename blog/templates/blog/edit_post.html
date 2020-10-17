@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %} - Blog Edit{% endblock title %}
+
+{% block content %}
+    <h1>Edit Post</h1>
+        {% if user.id == blogpost.author_id %}
+        <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+                {{ form.media }}
+                <button class="btn btn-ack">Post</button>
+            </div>
+        </form>
+        {% else %}
+            <p>You only have permission to edit your own posts</p>
+        {% endif %}
+{% endblock content %}
