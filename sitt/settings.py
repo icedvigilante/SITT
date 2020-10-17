@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # 3rd Party
-    # 'django_summernote',
+    # 'ckeditor',
     # 'crispy_forms'
 
     
@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     'accounts',
     'blog',
 ]
+INSTALLED_APPS += ('django_summernote', )
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -147,15 +149,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGIN_REDIRECT_URL = 'blog:home'
 LOGOUT_REDIRECT_URL = "mainsite:home"
 
-X_FRAME_OPTIONS = 'DENY'
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-# SUMMERNOTE_THEME = 'bs4'
-# SUMMERNOTE_CONFIG = {
-#     'summernote': {
-#         'width': '100%',
-#         'disable_attachement': True,
-#     }
-# }
+SUMMERNOTE_THEME = 'bs4'
+SUMMERNOTE_CONFIG = {
+    'summernote': {
+        'width': '100%',
+        'disable_attachment': True,
+    }
+}
 
 CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', default=True)
 

@@ -467,6 +467,10 @@ pre {
 
 }
 
+.blog-image {
+    height: 15em;
+}
+
 .view {
     background-color: white;
     padding-bottom: 2px;
