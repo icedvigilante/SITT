@@ -11,7 +11,8 @@
             {% endif %}
         </small>
         <small>By: <a href="#">{{ blogpost.author }}</a></small>
-        <small>Published on: {{ blogpost.post_date }}</small>
+        <small>Published on: {{ blogpost.post_date }}</small><br>
+        <small><a href="">{{ blogpost.category }}</a></small>
         <br>
         {% if blogpost.header_image %}<img src="{{ blogpost.header_image.url }}" alt="" class="blog-image">{% endif %}
         <article>

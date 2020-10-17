@@ -44,8 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # 3rd Party
-    'django_summernote',
+    # 'django_summernote',
     # 'crispy_forms'
+
     
     # Custom
     'mainsite',
@@ -148,10 +149,11 @@ LOGOUT_REDIRECT_URL = "mainsite:home"
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-SUMMERNOTE_THEME = 'bs4'
-SUMMERNOTE_CONFIG = {
-    'summernote': {
-        'width': '100%',
-        'disable_attachement': True,
-    }
-}
+# SUMMERNOTE_THEME = 'bs4'
+# SUMMERNOTE_CONFIG = {
+#     'summernote': {
+#         'width': '100%',
+#         'disable_attachement': True,
+#     }
+# }
+
