@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} - Add Dev Post{% endblock title %}
+
+{% block content %}
+    <h1>Add Dev Post</h1>
+    <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+            {{ form.media }}
+            <button class="btn btn-ack">Post</button>
+        </div>
+    </form>
+{% endblock content %}

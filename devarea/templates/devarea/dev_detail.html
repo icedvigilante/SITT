@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} - {{ devpost.app_name }} Details{% endblock title %}
+
+{% block content %}
+    <h1>{{ devpost.app_name }}</h1>
+    <small>
+        {% if user.id == devpost.author_id %}
+            <a href="#"><img src="{% static 'img/icons/edit_80px.png' %}" alt="" class="user_widget"></a>
+            <a href="#"><img src="{% static 'img/icons/delete_bin_80px.png' %}" alt="" class="user_widget"></a>
+        {% endif %}
+    </small>
+    <small>By: <a href="#">{{ devpost.author }}</a></small>
+    <small>Published on: {{ devpost.post_date }}</small><br>
+    <small><a href="">{{ devpost.app_type }}</a></small>
+    <br>
+    {% if devpost.screenshot %}<img src="{{ devpost.screenshot.url }}" alt="" class="blog-image">{% endif %}
+    <article>
+        {{ devpost.body|safe }}
+    </article>
+{% endblock content %}

@@ -13,11 +13,11 @@ class DevPost(models.Model):
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     snippet = models.CharField(max_length=100, null=True, blank=True)
     body = models.TextField(blank=True, null=True)
-    git_hub = models.URLField(blank=True, null=True)
+    git_hub = models.CharField(max_length=255, blank=True, null=True)
     post_date = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return self.app_name + ' | ' + str(self.author)
 
     def get_absolute_url(self):
-        return reverse('devrea:home')
+        return reverse('devarea:home')
