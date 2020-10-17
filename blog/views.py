@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
-from .models import BlogPost, Category
-from .forms import PostForm, AddCategoryForm, EditPostForm
+from .models import BlogPost
+from .forms import PostForm, EditPostForm
 
 
 class BlogView(ListView):
@@ -48,7 +48,7 @@ class DeleteBlogPostView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('blog:home')
 
 
-class AddCategoryView(LoginRequiredMixin, CreateView):
-    model = Category
-    form_class = AddCategoryForm
-    template_name = "blog/add_category.html"
+# class AddCategoryView(LoginRequiredMixin, CreateView):
+#     model = Category
+#     form_class = AddCategoryForm
+#     template_name = "blog/add_category.html"
