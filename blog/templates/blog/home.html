@@ -6,18 +6,20 @@
         <p>There are no blog posts</p>
     {% else %}
         {% for post in object_list %}
-            <h5 class="blog_item"><a href="{% url 'blog:blog_detail' post.pk %}" class="blog_item">{{ post.title }}</a></h5>
-            <small><a href="{% url 'blog:category_list' %}">{{ post.category }}</a></small>
-            <small>Published on: {{ post.post_date }}</small>
-            <small>
-                {% if user.id == post.author_id %}
-                    <a href="{% url 'blog:blog_edit' post.pk %}"><img src="{% static 'img/icons/edit_80px.png' %}" alt="" class="user_widget"></a>
-                    <a href="{% url 'blog:blog_delete' post.pk %}"><img src="{% static 'img/icons/delete_bin_80px.png' %}" alt="" class="user_widget"></a>
-                {% endif %}
+            {% if post.is_public %}
+                <h5 class="blog_item"><a href="{% url 'blog:blog_detail' post.pk %}" class="blog_item">{{ post.title }}</a></h5>
+                <small><a href="{% url 'blog:category_list' %}">{{ post.category }}</a></small>
+                <small>Published on: {{ post.post_date }}</small>
+                <small>
+                    {% if user.id == post.author_id %}
+                        <a href="{% url 'blog:blog_edit' post.pk %}"><img src="{% static 'img/icons/edit_80px.png' %}" alt="" class="user_widget"></a>
+                        <a href="{% url 'blog:blog_delete' post.pk %}"><img src="{% static 'img/icons/delete_bin_80px.png' %}" alt="" class="user_widget"></a>
+                    {% endif %}
 
-            </small>
-            <div>{{ post.snippet | safe }}...<a href="{% url 'blog:blog_detail' post.pk %}">Read More</a></div>
-            <small>Written by: <a href=#>{{ post.author }}</a></small>
+                </small>
+                <div>{{ post.snippet | safe }}...<a href="{% url 'blog:blog_detail' post.pk %}">Read More</a></div>
+                <small>Written by: <a href=#>{{ post.author }}</a></small>
+            {% endif %}
         {% endfor %}
     {% endif %}
 {% endblock content %}

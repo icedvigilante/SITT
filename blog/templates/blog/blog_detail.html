@@ -2,6 +2,7 @@
 {% load static %}
 {% block title %}{{ blogpost.title }}{% endblock %}
 {% block content %}
+    {% if blogpost.is_public %}
     <main>
         <h4>{{ blogpost.title }}</h4>
         <small>
@@ -19,4 +20,7 @@
             {{ blogpost.body|safe }}
         </article>
     </main>
+    {% else %}
+        <meta http-equiv="Refresh" content="0; URL={% url 'blog:home' %}">
+    {% endif %}
     {% endblock %}

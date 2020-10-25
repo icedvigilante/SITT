@@ -27,6 +27,7 @@ class BlogPost(models.Model):
     category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
     body = models.TextField(blank=True, null=True)
     post_date = models.DateField(auto_now_add=True)
+    is_public = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title + ' | ' + str(self.author)

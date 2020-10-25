@@ -24,7 +24,7 @@ for choice in cat_choice:
 class PostForm(forms.ModelForm):
     class Meta:
         model = BlogPost
-        fields = ('title', 'header_image', 'snippet', 'category', 'body',)
+        fields = ('title', 'header_image', 'snippet', 'category', 'body', 'is_public')
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
@@ -39,13 +39,14 @@ class PostForm(forms.ModelForm):
 class PostEditForm(forms.ModelForm):
     class Meta:
         model = BlogPost
-        fields = ('title', 'header_image', 'snippet', 'category', 'body')
+        fields = ('title', 'header_image', 'snippet', 'category', 'body', 'is_public')
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'snippet': forms.TextInput(attrs={'class': 'form-control'}),
             'category': forms.Select(choices=cat_choice_list, attrs={'class': 'form-control'}),
             'body': SummernoteInplaceWidget(),
+
         }
 
 
